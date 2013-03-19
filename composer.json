@@ -1,0 +1,21 @@
+{
+    "name": "theodordiaconu/geshi-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony GeshiBundle",
+    "keywords": ["geshi", "highlight", "highlighter", "syntax highlight"],
+    "homepage": "http://www.datati.ro",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Theodor Diaconu",
+            "email": "diaconu.theodor@gmail.com"
+        }
+    ],
+    "require": {
+        "theodordiaconu/geshi": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "dt\\Bundle\\dtGeshiBundle": "" }
+    },
+    "target-dir": "dt/Bundle/GeshiBundle"
+}

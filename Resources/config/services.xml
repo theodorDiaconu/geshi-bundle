@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dt_geshi.twig_extension.class">dt\Bundle\GeshiBundle\Extension\GeshiTwigExtension</parameter>
+    </parameters>
+
+    <services>
+        <service id="dt_geshi.twig_extension" class="%dt_geshi.twig_extension.class%">
+            <tag name="twig.extension" />
+        </service>
+
+        <!--<service id="dt_geshi.geshi_service" class="%dt_geshi.twig_extension.class%">-->
+        <!--</service>-->
+    </services>
+</container>
