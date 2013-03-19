@@ -15,7 +15,7 @@
         "theodordiaconu/geshi": "dev-master"
     },
     "autoload": {
-        "psr-0": { "dt\\Bundle\\dtGeshiBundle": "" }
+        "psr-0": { "dt\\Bundle\\GeshiBundle": "" }
     },
     "target-dir": "dt/Bundle/GeshiBundle"
 }
