@@ -6,14 +6,15 @@
 
     <parameters>
         <parameter key="dt_geshi.twig_extension.class">DT\Bundle\GeshiBundle\Extension\GeshiTwigExtension</parameter>
+        <parameter key="dt_geshi.highlighter.class">DT\Bundle\GeshiBundle\Parser\GeshiHighlighter</parameter>
     </parameters>
 
     <services>
+        <service id="dt_geshi.highlighter" class="%dt_geshi.highlighter.class%">
+        </service>
         <service id="dt_geshi.twig_extension" class="%dt_geshi.twig_extension.class%">
+            <argument type="service" id="dt_geshi.highlighter" />
             <tag name="twig.extension" />
         </service>
-
-        <!--<service id="dt_geshi.geshi_service" class="%dt_geshi.twig_extension.class%">-->
-        <!--</service>-->
     </services>
 </container>

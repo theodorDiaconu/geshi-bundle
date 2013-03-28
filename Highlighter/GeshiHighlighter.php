@@ -3,11 +3,11 @@
  * @author Theodor Diaconu <diaconu.theodor@gmail.com>
  */
 
-namespace DT\Bundle\GeshiBundle\Parser;
+namespace DT\Bundle\GeshiBundle\Highlighter;
 
 use GeSHi\GeSHi;
 
-class GeshiParser
+class GeshiParser implements HighlighterInterface
 {
     public function highlight($string, $language, $path = null) {
         $geshi = new GeSHi($string, $language, $path);

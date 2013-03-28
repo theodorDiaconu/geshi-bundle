@@ -12,6 +12,14 @@ class GeshiTwigExtension extends \Twig_Extension
 {
     const LANGUAGE_FALLBACK = 'javascript';
 
+    /** @var \DT\Bundle\GeshiBundle\Extension\HighlighterInterface */
+    private $highlighter;
+
+    public function __construct(HighlighterInterface $highlighter)
+    {
+        $this->highlighter = $highlighter;
+    }
+
     public function getFilters()
     {
         return array(
@@ -26,11 +34,15 @@ class GeshiTwigExtension extends \Twig_Extension
         );
     }
 
+    /**
+     * @param $string
+     * @param string $language
+     * @param null $path
+     * @return mixed
+     */
     public function highlight($string, $language = self::LANGUAGE_FALLBACK, $path = null)
     {
-        $parser = new GeshiParser();
-
-        return $parser->highlight($string, $language, $path);
+        return $this->highlighter->highlight($string, $language, $path);
     }
 
     /**
