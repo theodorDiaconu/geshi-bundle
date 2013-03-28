@@ -32,6 +32,17 @@ Twig
 
 Controller
 ---------------------------
-$response = new GeshiResponse();
-$response
-    ->setLanguage('php')
+```
+public function indexAction()
+{
+    // ...
+    $highlighter = $this->get('dt_geshi.highlighter');
+
+    return $highlighter->createResponse('<h1>Hello</h1>', 'html');
+}
+```
+
+Also, for bad ass people I have also plugged in another method:
+```
+return $highlighter->createJSONResponse(array('hello' => 'there'));
+```

@@ -25,11 +25,11 @@ class GeshiHighlighter implements HighlighterInterface
     }
 
     /**
-     * @param string $language
      * @param null $content
+     * @param string $language
      * @return GeshiResponse
      */
-    public function createResponse($language = 'javascript', $content = null)
+    public function createResponse($content = null, $language = 'javascript')
     {
         $response = new GeshiResponse();
         $response->setLanguage($language);
@@ -47,6 +47,6 @@ class GeshiHighlighter implements HighlighterInterface
      */
     public function createJSONResponse($array)
     {
-        return $this->createResponse('javascript', json_encode($array, JSON_PRETTY_PRINT));
+        return $this->createResponse(json_encode($array, JSON_PRETTY_PRINT), 'javascript');
     }
 }
