@@ -53,7 +53,7 @@ public function indexAction()
 }
 ```
 
-Also, for bad ass people I have also plugged in another method:
+- Also, for bad ass people I have also plugged in another method:
 ```
 $response = $highlighter->createJSONResponse(array('hello' => 'there'));
 ```
@@ -61,19 +61,25 @@ $response = $highlighter->createJSONResponse(array('hello' => 'there'));
 
 - If you want flexibility in configuring the output, you've got it.
 ```
-$highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html', function(\GeSHi\GeSHi $geshi){
-    $geshi->set_header_type(GESHI_HEADER_NONE);
-});
+$highlighted = $highlighter->highlight(
+    '<h1>Please highlight me!</h1>',
+    'html',
+    function(\GeSHi\GeSHi $geshi){
+        $geshi->set_header_type(GESHI_HEADER_NONE);
+    }
+);
 ```
 
+- How to set default options to GeSHi
 ```
-$highlighter->setDefaultOptions(function(\GeSHi\GeSHi $geshi){
-     $geshi->set_header_type(GESHI_HEADER_NONE);
+$highlighter->setDefaultOptions(function($geshi){
+    /** @var $geshi \GeSHi\GeSHi */
+    $geshi->set_header_type(GESHI_HEADER_NONE);
 });
 
 // the highlighting will proceed using the settings from the Default Options
 $highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html');
-or
+// or
 $highlighter->createResponse('<h1>Hello</h1>', 'html');
 ```
 
