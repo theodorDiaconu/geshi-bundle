@@ -1,10 +1,10 @@
-dtGeshiBundle
+DTGeshiBundle
 ===================================================
 
 Add in the composer
-```json
+```javascript
 requires: {
-    ...,
+    // ...
     "theodordiaconu/geshi-bundle" : "dev-master",
 }
 ```
@@ -12,7 +12,7 @@ requires: {
 In the app/AppKernel.php file
 ```php
 $bundles = array(
-    ...,
+    // ...
     new DT\Bundle\GeshiBundle\DTGeshiBundle(),
 );
 ```
@@ -30,20 +30,22 @@ Twig
 {{ geshi_highlight(block_of_code, 'javascript') }}
 ```
 
-Controller
+PHP
 ---------------------------
 
-- To get the highlighter
+#### To get the highlighter
+
 ```php
 $highlighter = $this->get('dt_geshi.highlighter');
 ```
 
-- Simple highlighting
+#### Simple highlighting
+
 ```php
 $highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html');
 ```
 
-- To create a response that highlights everything automatically for you
+#### To create a response that highlights everything automatically for you
 ```php
 public function indexAction()
 {
@@ -53,14 +55,14 @@ public function indexAction()
 }
 ```
 
-- Also, for bad ass people I have also plugged in another method:
+#### Also, for bad ass people I have also plugged in another method:
 
 ```php
 $response = $highlighter->createJSONResponse(array('hello' => 'there'));
 ```
 
 
-- If you want flexibility in configuring the output, you've got it.
+#### If you want flexibility in configuring the output, you've got it.
 
 ```php
 $highlighted = $highlighter->highlight(
@@ -72,7 +74,8 @@ $highlighted = $highlighter->highlight(
 );
 ```
 
-- How to set default options to GeSHi
+#### How to set default options to GeSHi
+
 ```php
 $highlighter->setDefaultOptions(function($geshi){
     /** @var $geshi \GeSHi\GeSHi */
