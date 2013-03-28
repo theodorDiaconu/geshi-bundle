@@ -5,8 +5,8 @@
 
 namespace DT\Bundle\GeshiBundle\Extension;
 
+use DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface;
 use GeSHi\GeSHi;
-use DT\Bundle\GeshiBundle\Parser\GeshiParser;
 
 class GeshiTwigExtension extends \Twig_Extension
 {

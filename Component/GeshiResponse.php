@@ -35,11 +35,14 @@ class GeshiResponse extends Response
      * Sets content to the response
      *
      * @param mixed $content
+     * @throws \Exception
      * @return $this|Response|void
      */
     public function setContent($content)
     {
-        $this->content = $this->highlighter->highlight($content, $this->getLanguage());
+        if (null !== $this->getHighlighter()) {
+            $this->content = $this->getHighlighter()->highlight($content, $this->getLanguage());
+        }
     }
 
     /**

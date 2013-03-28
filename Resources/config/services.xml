@@ -6,7 +6,7 @@
 
     <parameters>
         <parameter key="dt_geshi.twig_extension.class">DT\Bundle\GeshiBundle\Extension\GeshiTwigExtension</parameter>
-        <parameter key="dt_geshi.highlighter.class">DT\Bundle\GeshiBundle\Parser\GeshiHighlighter</parameter>
+        <parameter key="dt_geshi.highlighter.class">DT\Bundle\GeshiBundle\Highlighter\GeshiHighlighter</parameter>
     </parameters>
 
     <services>
