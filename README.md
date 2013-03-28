@@ -2,7 +2,7 @@ dtGeshiBundle
 ===================================================
 
 Add in the composer
-```
+```json
 requires: {
     ...,
     "theodordiaconu/geshi-bundle" : "dev-master",
@@ -10,7 +10,7 @@ requires: {
 ```
 
 In the app/AppKernel.php file
-```
+```php
 $bundles = array(
     ...,
     new DT\Bundle\GeshiBundle\DTGeshiBundle(),
@@ -24,62 +24,64 @@ After you have plugged it in your Symfony2 Application you have several ways to 
 
 Twig
 ---------------------------
-.. code:: twig
+```twig
+{{ block_of_code|geshi_highlight('javascript') }}
 
-    {{ block_of_code|geshi_highlight('javascript') }}
-
-    {{ geshi_highlight(block_of_code, 'javascript') }}
+{{ geshi_highlight(block_of_code, 'javascript') }}
+```
 
 Controller
 ---------------------------
 
 - To get the highlighter
-.. code:: php
-
-    $highlighter = $this->get('dt_geshi.highlighter');
+```php
+$highlighter = $this->get('dt_geshi.highlighter');
+```
 
 - Simple highlighting
-.. code:: php
-
-    $highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html');
+```php
+$highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html');
+```
 
 - To create a response that highlights everything automatically for you
-.. code:: php
-
-    public function indexAction()
-    {
-        // ...
-        return $highlighter->createResponse('<h1>Hello</h1>', 'html');
-        return $highlighter->createResponse('<h1>This is the line with the error</h1>', 'html', 500);
-    }
+```php
+public function indexAction()
+{
+    // ...
+    return $highlighter->createResponse('<h1>Hello</h1>', 'html');
+    return $highlighter->createResponse('<h1>This is the line with the error</h1>', 'html', 500);
+}
+```
 
 - Also, for bad ass people I have also plugged in another method:
-.. code:: php
 
-    $response = $highlighter->createJSONResponse(array('hello' => 'there'));
+```php
+$response = $highlighter->createJSONResponse(array('hello' => 'there'));
+```
 
 
 - If you want flexibility in configuring the output, you've got it.
-.. code:: php
 
-    $highlighted = $highlighter->highlight(
-        '<h1>Please highlight me!</h1>',
-        'html',
-        function(\GeSHi\GeSHi $geshi){
-            $geshi->set_header_type(GESHI_HEADER_NONE);
-        }
-    );
+```php
+$highlighted = $highlighter->highlight(
+    '<h1>Please highlight me!</h1>',
+    'html',
+    function(\GeSHi\GeSHi $geshi){
+        $geshi->set_header_type(GESHI_HEADER_NONE);
+    }
+);
+```
 
 - How to set default options to GeSHi
-.. code:: php
+```php
+$highlighter->setDefaultOptions(function($geshi){
+    /** @var $geshi \GeSHi\GeSHi */
+    $geshi->set_header_type(GESHI_HEADER_NONE);
+});
 
-    $highlighter->setDefaultOptions(function($geshi){
-        /** @var $geshi \GeSHi\GeSHi */
-        $geshi->set_header_type(GESHI_HEADER_NONE);
-    });
-
-    // the highlighting will proceed using the settings from the Default Options
-    $highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html');
-    // or
-    $highlighter->createResponse('<h1>Hello</h1>', 'html');
+// the highlighting will proceed using the settings from the Default Options
+$highlighted = $highlighter->highlight('<h1>Please highlight me!</h1>', 'html');
+// or
+$highlighter->createResponse('<h1>Hello</h1>', 'html');
+```
 
