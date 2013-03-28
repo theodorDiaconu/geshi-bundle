@@ -5,32 +5,56 @@
 
 namespace DT\Bundle\GeshiBundle\Component;
 
+use DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface;
 use Symfony\Component\HttpFoundation\Response;
-use DT\Bundle\GeshiBundle\Parser\GeshiParser;
 
 class GeshiResponse extends Response
 {
     protected $language;
-    const LANGUAGE_FALLBACK = 'javascript';
 
+    /** @var HighlighterInterface */
+    protected $highlighter;
+
+    /**
+     * @param $language
+     */
     public function setLanguage($language)
     {
         $this->language = $language;
     }
 
+    /**
+     * @return mixed
+     */
     public function getLanguage()
     {
-        if ($this->language === null) {
-
-            return static::LANGUAGE_FALLBACK;
-        }
-
         return $this->language;
     }
 
+    /**
+     * Sets content to the response
+     *
+     * @param mixed $content
+     * @return $this|Response|void
+     */
     public function setContent($content)
     {
-        $parser = new GeshiParser();
-        $this->content = $parser->highlight($content, $this->getLanguage());
+        $this->content = $this->highlighter->highlight($content, $this->getLanguage());
+    }
+
+    /**
+     * @param \DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface $highlighter
+     */
+    public function setHighlighter($highlighter)
+    {
+        $this->highlighter = $highlighter;
+    }
+
+    /**
+     * @return \DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface
+     */
+    public function getHighlighter()
+    {
+        return $this->highlighter;
     }
 }

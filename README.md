@@ -3,18 +3,18 @@ dtGeshiBundle
 
 Add in the composer
 ```
-    requires: {
-        ...,
-        "theodordiaconu/geshi-bundle" : "dev-master",
-    }
+requires: {
+    ...,
+    "theodordiaconu/geshi-bundle" : "dev-master",
+}
 ```
 
 In the app/AppKernel.php file
 ```
-    $bundles = array(
-        ...,
-        new DT\Bundle\GeshiBundle\dtGeshiBundle(),
-    );
+$bundles = array(
+    ...,
+    new DT\Bundle\GeshiBundle\DTGeshiBundle(),
+);
 ```
 
 How to use
@@ -25,9 +25,13 @@ After you have plugged it in your Symfony2 Application you have several ways to 
 Twig
 ---------------------------
 ```
-{{ block_of_code|geshi_highlight('js') }}
-{{ geshi_highlight(block_of_code, 'js') }}
+{{ block_of_code|geshi_highlight('javascript') }}
+
+{{ geshi_highlight(block_of_code, 'javascript') }}
 ```
 
 Controller
 ---------------------------
+$response = new GeshiResponse();
+$response
+    ->setLanguage('php')
