@@ -3,10 +3,10 @@
  * @author Theodor Diaconu <diaconu.theodor@gmail.com>
  */
 
-namespace dt\Bundle\GeshiBundle\Component;
+namespace DT\Bundle\GeshiBundle\Component;
 
 use Symfony\Component\HttpFoundation\Response;
-use dt\Bundle\GeshiBundle\Parser\GeshiParser;
+use DT\Bundle\GeshiBundle\Parser\GeshiParser;
 
 class GeshiResponse extends Response
 {

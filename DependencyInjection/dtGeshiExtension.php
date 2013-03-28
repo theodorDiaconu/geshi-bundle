@@ -1,6 +1,6 @@
 <?php
 
-namespace dt\Bundle\GeshiBundle\DependencyInjection;
+namespace DT\Bundle\GeshiBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

@@ -3,10 +3,10 @@
  * @author Theodor Diaconu <diaconu.theodor@gmail.com>
  */
 
-namespace dt\Bundle\GeshiBundle\Extension;
+namespace DT\Bundle\GeshiBundle\Extension;
 
 use GeSHi\GeSHi;
-use dt\Bundle\GeshiBundle\Parser\GeshiParser;
+use DT\Bundle\GeshiBundle\Parser\GeshiParser;
 
 class GeshiTwigExtension extends \Twig_Extension
 {

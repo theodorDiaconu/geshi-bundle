@@ -1,9 +1,9 @@
 <?php
 
-namespace dt\Bundle\GeshiBundle;
+namespace DT\Bundle\GeshiBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class dtGeshiBundle extends Bundle
+class DTGeshiBundle extends Bundle
 {
 }

@@ -3,7 +3,7 @@
  * @author Theodor Diaconu <diaconu.theodor@gmail.com>
  */
 
-namespace dt\Bundle\GeshiBundle\Parser;
+namespace DT\Bundle\GeshiBundle\Parser;
 
 use GeSHi\GeSHi;
 

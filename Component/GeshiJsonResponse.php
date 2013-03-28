@@ -3,9 +3,9 @@
  * @author Theodor Diaconu <diaconu.theodor@gmail.com>
  */
 
-namespace dt\Bundle\GeshiBundle\Component;
+namespace DT\Bundle\GeshiBundle\Component;
 
-use dt\Bundle\GeshiBundle\Parser\GeshiParser;
+use DT\Bundle\GeshiBundle\Parser\GeshiParser;
 
 class GeshiJsonResponse extends GeshiResponse
 {

@@ -13,7 +13,7 @@ In the app/AppKernel.php file
 ::
     $bundles = array(
         ...
-        new dt\Bundle\GeshiBundle\dtGeshiBundle(),
+        new DT\Bundle\GeshiBundle\dtGeshiBundle(),
     );
 
 
